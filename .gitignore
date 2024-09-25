@@ -1,1 +1,9 @@
+.env
 .idea
+.ruby-lsp
+
+tmp/**
+!tmp/.keep
+
+log/**
+!log/.keep
