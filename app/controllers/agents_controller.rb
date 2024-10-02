@@ -1,6 +1,9 @@
 class AgentsController < ApplicationController
   def show
-    agent = Faraday.get('https://api.spacetraders.io/v2/my/agent', nil, {'Authorization' => 'Bearer ' + ENV['AGENT_TOKEN']})
-  render json: agent.body
+    @agent = Agent.fetch(ENV['AGENT_TOKEN'])
+    respond_to do |format|
+      format.json { render json: @agent }
+      format.html
+    end
   end
 end
