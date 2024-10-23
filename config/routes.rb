@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get "up" => "rails/health#show", as: :rails_health_check
-  resource :agent, only: :show
+  root to: "agents#index"
+  resource :agent, only: [:show, :create, :update, :destroy]
+  resources :contracts
 end

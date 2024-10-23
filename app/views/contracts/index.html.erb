@@ -1,0 +1,10 @@
+<ul>
+  <% @contracts.each do |contract| %>
+    <li>
+      <p>Faction: <%= contract.faction_symbol %></p>
+      <p>Type: <%= contract.type %></p>
+      <p>Terms: <pre><%= JSON.pretty_generate(contract.terms) %></pre></p>
+      <p>Expiration: <%= contract.expiration %></p>
+    </li>
+  <% end %>
+</ul>

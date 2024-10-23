@@ -1,0 +1,13 @@
+<ul>
+  <% @agents.each do |agent| %>
+    <li>
+      <p>Name: <%= agent.name %></p>
+      <%= link_to "Select", agent_path(name: agent.name), data: { turbo_method: :put } %>
+    </li>
+  <% end %>
+</ul>
+<%= form_with url: "/agent", method: :post do |form| %>
+  <%= form.label :name, "Name:" %>
+  <%= form.text_field :name %>
+  <%= form.submit "Register" %>
+<% end %>

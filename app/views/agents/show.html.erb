@@ -4,3 +4,5 @@
 <h2>Credits: <%= @agent.credits %></h2>
 <h2>Starting Faction: <%= @agent.starting_faction %></h2>
 <h2>Ship Count: <%= @agent.ship_count %></h2>
+
+<%= link_to "Delete", agent_path(name: @agent.symbol), data: { turbo_method: :delete } %>
