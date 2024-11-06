@@ -5,6 +5,8 @@
       <p>Type: <%= contract.type %></p>
       <p>Terms: <pre><%= JSON.pretty_generate(contract.terms) %></pre></p>
       <p>Expiration: <%= contract.expiration %></p>
+      <p>Accepted: <%= contract.accepted %></p>
+      <%= link_to "Accept", contracts_path(id: contract.id), data: { turbo_method: :post } %>
     </li>
   <% end %>
 </ul>

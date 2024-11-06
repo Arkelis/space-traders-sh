@@ -12,5 +12,9 @@ class Contract
         Contract.new(**contract.deep_transform_keys(&:underscore))
       end
     end
+
+    def accept(id, token)
+      Faraday.post("https://api.spacetraders.io/v2/my/contracts/#{id}/accept", nil, {'Authorization' => 'Bearer ' + token})
+    end
   end
 end

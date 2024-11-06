@@ -6,5 +6,10 @@ class ContractsController < ApplicationController
       format.html
     end
   end
+
+  def create
+    Contract.accept(params[:id], session[:current_agent_token])
+    redirect_to :contracts
+  end
 end
 

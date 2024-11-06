@@ -1,0 +1,9 @@
+<ul>
+  <% @ships.each do |ship| %>
+    <li>
+      <p>Symbol: <%= ship.symbol %></p>
+      <p>Registration: <pre><%= JSON.pretty_generate(ship.registration) %></pre></p>
+      <p>Navigation: <pre><%= JSON.pretty_generate(ship.nav) %></pre></p>
+    </li>
+  <% end %>
+</ul>
