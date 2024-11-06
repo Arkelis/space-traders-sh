@@ -2,8 +2,9 @@
   <% @ships.each do |ship| %>
     <li>
       <p>Symbol: <%= ship.symbol %></p>
-      <p>Registration: <pre><%= JSON.pretty_generate(ship.registration) %></pre></p>
-      <p>Navigation: <pre><%= JSON.pretty_generate(ship.nav) %></pre></p>
+      <div>Registration: <pre><%= JSON.pretty_generate(ship.registration) %></pre></div>
+      <div>Navigation: <pre><%= JSON.pretty_generate(ship.nav) %></pre></div>
+     <%= link_to "View system waypoints", waypoints_path(system: ship.nav["system_symbol"], traits: "SHIPYARD") %>
     </li>
   <% end %>
 </ul>

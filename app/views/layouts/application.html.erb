@@ -11,7 +11,12 @@
   </head>
 
   <body>
+    <ul>
+      <li><%= link_to current_agent_symbol, agent_path %></li>
+      <li><%= link_to "Contracts", contracts_path %></li>
+      <li><%= link_to "Ships", ships_path %></li>
+    </ul>
+    <hr>
     <%= yield %>
-    <%= session[:current_agent_symbol] %>
   </body>
 </html>

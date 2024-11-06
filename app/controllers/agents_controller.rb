@@ -4,7 +4,7 @@ class AgentsController < ApplicationController
   end
 
   def show
-    @agent = Agent.fetch(session[:current_agent_token])
+    @agent = Agent.fetch(current_agent_token)
     respond_to do |format|
       format.json { render json: @agent }
       format.html
@@ -13,15 +13,13 @@ class AgentsController < ApplicationController
 
   def create
     agent = Agent.register(params[:name])
-    session[:current_agent_token] = agent.token
-    session[:current_agent_symbol] = agent.name
+    set_current_agent(token: agent.token, name: agent.name)
     redirect_to :agent
   end
 
   def update
     agent = Agent.find_by(name: params[:name])
-    session[:current_agent_token] = agent.token
-    session[:current_agent_symbol] = agent.name
+    set_current_agent(token: agent.token, name: agent.name)
     redirect_to :agent
   end
 

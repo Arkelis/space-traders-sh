@@ -1,0 +1,10 @@
+<ul>
+  <% @waypoints.each do |waypoint| %>
+  <li>
+    Waypoint: <%= waypoint.symbol %> (<%= waypoint.type %>)
+    Traits: <pre>
+    <%= waypoint.traits.map do |payload| payload["name"] end %>
+  </pre>
+  </li>
+  <% end %>
+</ul>

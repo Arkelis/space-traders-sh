@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resource :agent, only: [:show, :create, :update, :destroy]
   resources :contracts
   resources :ships
+  resources :waypoints
 end
